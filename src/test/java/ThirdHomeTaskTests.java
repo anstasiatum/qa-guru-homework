@@ -14,12 +14,11 @@ public class ThirdHomeTaskTests {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void practiceFormFillTest() {
-        // Setting up test data
+        // Setting up the test data
         String firstName = "John";
         String surname = "Doe";
         String fullName = firstName + " " + surname;
@@ -34,7 +33,7 @@ public class ThirdHomeTaskTests {
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(surname);
         $("#userEmail").setValue(email);
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue(phoneNumber);
 
         $("#dateOfBirthInput").click();
@@ -43,7 +42,7 @@ public class ThirdHomeTaskTests {
         $(".react-datepicker__day--016").click();
 
         $("#subjectsInput").setValue("Maths").pressEnter();
-        $(byText("Music")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
         $("#currentAddress").setValue(currentAddress);
         $("#uploadPicture").uploadFromClasspath("AvatarExample.jpg");
 

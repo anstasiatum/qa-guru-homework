@@ -24,7 +24,7 @@ public class FourthHometaskTest {
         $("#wiki-tab").click();
         // Asserting there is a Soft assertions page
         $("#wiki-body").shouldHave(text("Soft assertions"));
-        // Opening the Soft Assertions page
+        // Opening the Soft assertions page
         $("#wiki-body").$(byText("Soft assertions")).click();
         // Making sure there are two JUnit5 code snippets
         $(".markdown-body").shouldHave(text("""

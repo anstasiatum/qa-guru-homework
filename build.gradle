@@ -2,14 +2,12 @@ plugins {
     id 'java-library'
 }
 
-compileJava.options.encoding = 'UTF-8'
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-}
-
 repositories {
     mavenCentral()
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 dependencies {

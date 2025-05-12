@@ -18,6 +18,8 @@ public class FifthHometaskDragTest {
     @Test
     void rectanglesShouldSwitchPlacesTest() {
         open("/drag_and_drop");
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));

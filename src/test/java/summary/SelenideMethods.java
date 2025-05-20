@@ -1,4 +1,4 @@
-package Summary;
+package summary;
 
 import com.codeborne.selenide.*;
 import org.openqa.selenium.*;

@@ -44,7 +44,7 @@ public class ThirdHomeTaskTests {
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#currentAddress").setValue(currentAddress);
-        $("#uploadPicture").uploadFromClasspath("AvatarExample.jpg");
+        $("#uploadPicture").uploadFromClasspath("AvatarExample1.jpg");
 
         $("#state").click();
         $("#react-select-3-input").setValue("Ut").pressEnter();
@@ -63,7 +63,7 @@ public class ThirdHomeTaskTests {
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("16 May,2014"));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Music"));
-        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("	AvatarExample.jpg"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("AvatarExample1.jpg"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("Uttar Pradesh Lucknow"));
     }

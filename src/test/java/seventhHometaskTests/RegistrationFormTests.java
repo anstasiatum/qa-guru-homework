@@ -1,33 +1,45 @@
-package sixthHometaskTests;
+package seventhHometaskTests;
 
 import org.junit.jupiter.api.Test;
 import pages.registrationPage.RegistrationPage;
+import sixthHometaskTests.TestBase;
+
+import static seventhHometaskTests.TestData.currentAddress;
+import static seventhHometaskTests.TestData.email;
+import static seventhHometaskTests.TestData.firstName;
+import static seventhHometaskTests.TestData.fullName;
+import static seventhHometaskTests.TestData.getRandomAvatar;
+import static seventhHometaskTests.TestData.getRandomBirthday;
+import static seventhHometaskTests.TestData.getRandomCity;
+import static seventhHometaskTests.TestData.getRandomGender;
+import static seventhHometaskTests.TestData.getRandomHobby;
+import static seventhHometaskTests.TestData.getRandomMonth;
+import static seventhHometaskTests.TestData.getRandomState;
+import static seventhHometaskTests.TestData.getRandomSubject;
+import static seventhHometaskTests.TestData.getRandomYear;
+import static seventhHometaskTests.TestData.lastName;
+import static seventhHometaskTests.TestData.phoneNumber;
 
 public class RegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-    // Setting up the test data
-    final String firstName = "John";
-    final String lastName = "Doe";
-    final String fullName = firstName + " " + lastName;
-    final String email = "johndoe@gmail.com";
-    final String gender = "Other";
-    final String phoneNumber = "9315334916";
-    final String subject = "Maths";
-    final String hobby = "Music";
-    final String currentAddress = "Test Address";
-    final String avatarPath = "AvatarExample1.jpg";
-    final String birthDay = "16";
-    final String birthMonth = "May";
-    final String birthYear = "2014";
-    final String dateOfBirth = birthDay + " " + birthMonth + "," + birthYear;
-    final String state = "Uttar Pradesh";
-    final String city = "Lucknow";
-    final String stateAndCity = state + " " + city;
+    //Generating test data
+    private final String gender = getRandomGender();
+    private final String subject = getRandomSubject();
+    private final String hobby = getRandomHobby();
+    private final String birthMonth = getRandomMonth();
+    private final String birthYear = getRandomYear();
+    private final String birthDay = getRandomBirthday(birthMonth, birthYear);
+    private final String dateOfBirth = birthDay + " " + birthMonth + "," + birthYear;
+    private final String state = getRandomState();
+    private final String city = getRandomCity(state);
+    private final String stateAndCity = state + " " + city;
+    private final String avatarPath = getRandomAvatar();
 
     @Test
     void practiceFormFillAllFieldsTest() {
+
         // Opening the form page
         registrationPage.openPage();
 
@@ -94,3 +106,4 @@ public class RegistrationFormTests extends TestBase {
                 .userNumberFieldHasError();
     }
 }
+

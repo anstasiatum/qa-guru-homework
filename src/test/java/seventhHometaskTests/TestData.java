@@ -88,7 +88,7 @@ public class TestData {
     }
 
     public static String getRandomAvatar() {
-        String[] avararPaths = {"AvatarExample1.jpg", "AvatarExample2.PNG", "AvatarExample3.jpg"};
-        return getRandomItemFromArray(avararPaths);
+        String[] avatarPaths = {"AvatarExample1.jpg", "AvatarExample2.PNG", "AvatarExample3.jpg"};
+        return getRandomItemFromArray(avatarPaths);
     }
 }

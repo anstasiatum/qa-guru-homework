@@ -17,33 +17,23 @@ public class TestData {
     final static String currentAddress = faker.address().fullAddress();
     final static String phoneNumber = faker.numerify("##########");
 
-    // Util method to get a random item from an array
-    public static String getRandomItemFromArray(String[] array) {
-        Random random = new Random();
-        int randomIndex = random.nextInt(array.length);
-        return array[randomIndex];
-    }
 
     // Custom methods to get random test data
     public static String getRandomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-        return getRandomItemFromArray(genders);
+        return faker.options().option("Male", "Female", "Other");
     }
 
     public static String getRandomSubject() {
-        String[] subjects = {"Maths", "Accounting", "Arts", "Social Studies", "Biology", "Physics", "Computer Science", "Chemistry", "Commerce", "Arts", "Economics", "Social Studies", "Civics", "Hindi", "English", "History"};
-        return getRandomItemFromArray(subjects);
+        return faker.options().option("Maths", "Accounting", "Arts", "Social Studies", "Biology", "Physics", "Computer Science", "Chemistry", "Commerce", "Arts", "Economics", "Social Studies", "Civics", "Hindi", "English", "History");
     }
 
     public static String getRandomHobby() {
-        String[] hobbies = {"Reading", "Sports", "Music"};
-        return getRandomItemFromArray(hobbies);
+        return faker.options().option("Reading", "Sports", "Music");
     }
 
     public static String getRandomMonth() {
-        String[] months = {"January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"};
-        return getRandomItemFromArray(months);
+        return faker.options().option("January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December");
     }
 
     public static String getRandomYear() {
@@ -71,24 +61,24 @@ public class TestData {
     }
 
     public static String getRandomState() {
-        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-        return getRandomItemFromArray(states);
+        return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
 
     public static String getRandomCity(String state) {
-        String[] cities = new String[0];
-        cities = switch (state) {
-            case ("NCR") -> new String[]{"Delhi", "Gurgaon", "Noida"};
-            case ("Uttar Pradesh") -> new String[]{"Agra", "Lucknow", "Merrut"};
-            case ("Haryana") -> new String[]{"Karnal", "Panipat"};
-            case ("Rajasthan") -> new String[]{"Jaipur", "Jaiselmer"};
-            default -> cities;
-        };
-        return getRandomItemFromArray(cities);
+        switch (state) {
+            case ("NCR"):
+                return faker.options().option("Delhi", "Gurgaon", "Noida");
+            case ("Uttar Pradesh"):
+                return faker.options().option("Agra", "Lucknow", "Merrut");
+            case ("Haryana") :
+                return faker.options().option("Karnal", "Panipat");
+            case ("Rajasthan"):
+                return faker.options().option("Jaipur", "Jaiselmer");
+            default: throw new IllegalArgumentException("Wrong state");
+        }
     }
 
     public static String getRandomAvatar() {
-        String[] avatarPaths = {"AvatarExample1.jpg", "AvatarExample2.PNG", "AvatarExample3.jpg"};
-        return getRandomItemFromArray(avatarPaths);
+        return faker.options().option("AvatarExample1.jpg", "AvatarExample2.PNG", "AvatarExample3.jpg");
     }
 }

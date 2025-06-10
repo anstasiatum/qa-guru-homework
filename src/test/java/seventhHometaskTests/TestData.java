@@ -3,7 +3,6 @@ package seventhHometaskTests;
 import com.github.javafaker.Faker;
 
 import java.util.Locale;
-import java.util.Random;
 
 public class TestData {
 
@@ -37,24 +36,22 @@ public class TestData {
     }
 
     public static String getRandomYear() {
-        Random random = new Random();
-        int randomYear = random.nextInt(1990, 2025);
+        int randomYear = faker.number().numberBetween(1990, 2025);
         return String.valueOf(randomYear);
     }
 
     public static String getRandomBirthday(String month, String year) {
-        Random random = new Random();
         switch (month) {
             case ("January"), ("March"), ("May"), ("July"), ("August"), ("October"), ("December"):
-                return String.valueOf(random.nextInt(1, 32));
+                return String.valueOf(faker.number().numberBetween(1, 32));
             case ("April"), ("June"), ("September"), ("November"):
-                return String.valueOf(random.nextInt(1, 31));
+                return String.valueOf(faker.number().numberBetween(1, 31));
             case ("February"):
                 int integerYear = Integer.parseInt(year);
                 if (((integerYear % 4 == 0) && !(integerYear % 100 == 0)) || (integerYear % 400 == 0))
-                    return String.valueOf(random.nextInt(1, 30));
+                    return String.valueOf(faker.number().numberBetween(1, 30));
                 else
-                    return String.valueOf(random.nextInt(1, 29));
+                    return String.valueOf(faker.number().numberBetween(1, 29));
             default:
                 throw new IllegalArgumentException("Wrong month");
         }
@@ -70,11 +67,12 @@ public class TestData {
                 return faker.options().option("Delhi", "Gurgaon", "Noida");
             case ("Uttar Pradesh"):
                 return faker.options().option("Agra", "Lucknow", "Merrut");
-            case ("Haryana") :
+            case ("Haryana"):
                 return faker.options().option("Karnal", "Panipat");
             case ("Rajasthan"):
                 return faker.options().option("Jaipur", "Jaiselmer");
-            default: throw new IllegalArgumentException("Wrong state");
+            default:
+                throw new IllegalArgumentException("Wrong state");
         }
     }
 

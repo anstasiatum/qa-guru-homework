@@ -29,6 +29,7 @@ public class FilesTests {
     @Test
     @DisplayName("Checking the names of the archived files")
     void zipFileContentsNamesTest() throws IOException {
+
         List<String> expectedFileNamesInArchive = List.of("CSVFile.csv", "ExcelTable.xlsx", "PDFFile.pdf");
 
         try (ZipInputStream zipInputStream = new ZipInputStream(Objects.requireNonNull(classLoader.getResourceAsStream("QAGuru.zip")))) {
@@ -48,8 +49,10 @@ public class FilesTests {
 
         ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(zipFilePath));
 
+
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             ZipEntry entry = zipFile.getEntry(csvFileNameInZip);
+            Assertions.assertNotNull(entry, "Could not find the CSV file in the archive");
             while ((zipInputStream.getNextEntry()) != null) {
                 try (InputStream inputStream = zipFile.getInputStream(entry);
                      CSVReader csvReader = new CSVReader(new InputStreamReader(inputStream))) {
@@ -78,6 +81,7 @@ public class FilesTests {
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             ZipEntry entry = zipFile.getEntry(pdfFileNameInZip);
+            Assertions.assertNotNull(entry, "Could not find the PDF in the archive");
 
             while ((zipEntry = zipInputStream.getNextEntry()) != null) {
                 if (zipEntry.getName().equals(pdfFileNameInZip)) {
@@ -101,6 +105,7 @@ public class FilesTests {
 
         try (ZipFile zipFile = new ZipFile(zipFilePath)) {
             ZipEntry entry = zipFile.getEntry(xlsxFileNameInZip);
+            Assertions.assertNotNull(entry, "Could not find the Excel Table in the archive");
 
             while ((zipEntry = zipInputStream.getNextEntry()) != null) {
                 if (zipEntry.getName().equals(xlsxFileNameInZip)) {

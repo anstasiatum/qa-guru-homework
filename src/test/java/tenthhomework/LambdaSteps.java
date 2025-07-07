@@ -2,7 +2,6 @@ package tenthhomework;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tenthhomework.annotationsteps.Steps;
 
@@ -16,7 +15,6 @@ public class LambdaSteps {
     public static final String REPOSITORY = "anstasiatum/qa-guru-homework";
 
     @Test
-    @Tag("Jenkins")
     public void testLambdaStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 

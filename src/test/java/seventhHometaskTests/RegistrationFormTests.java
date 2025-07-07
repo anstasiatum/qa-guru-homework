@@ -1,5 +1,7 @@
 package seventhHometaskTests;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.registrationPage.RegistrationPage;
@@ -38,6 +40,11 @@ public class RegistrationFormTests extends TestBase {
     private final String city = getRandomCity(state);
     private final String stateAndCity = state + " " + city;
     private final String avatarPath = getRandomAvatar();
+
+    @BeforeAll
+    static void browserConfiguration() {
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+    }
 
     @Test
     void practiceFormFillAllFieldsTest() {

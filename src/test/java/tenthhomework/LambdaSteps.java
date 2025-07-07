@@ -21,6 +21,7 @@ public class LambdaSteps {
     @BeforeAll
     static void browserConfiguration() {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @Test

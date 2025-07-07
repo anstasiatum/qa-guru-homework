@@ -8,8 +8,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.registrationPage.RegistrationPage;
 import sixthHometaskTests.TestBase;
+
+import java.util.Map;
 
 import static seventhHometaskTests.TestData.currentAddress;
 import static seventhHometaskTests.TestData.email;
@@ -49,6 +52,13 @@ public class RegistrationFormTests extends TestBase {
     static void browserConfiguration() {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        Configuration.browserCapabilities = capabilities;
     }
 
     @AfterEach
@@ -56,6 +66,7 @@ public class RegistrationFormTests extends TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 
     @Test

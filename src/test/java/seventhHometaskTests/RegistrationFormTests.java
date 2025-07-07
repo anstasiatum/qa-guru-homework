@@ -1,5 +1,6 @@
 package seventhHometaskTests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.registrationPage.RegistrationPage;
 import sixthHometaskTests.TestBase;
@@ -20,6 +21,7 @@ import static seventhHometaskTests.TestData.getRandomYear;
 import static seventhHometaskTests.TestData.lastName;
 import static seventhHometaskTests.TestData.phoneNumber;
 
+@Tag("Jenkins")
 public class RegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();

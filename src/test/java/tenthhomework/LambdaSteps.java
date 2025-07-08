@@ -17,24 +17,36 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
+import static java.lang.String.format;
 import static org.openqa.selenium.By.linkText;
 
 @Tag("Jenkins")
 @Tag("Annotations")
 public class LambdaSteps {
-    public static final String REPOSITORY = "anstasiatum/qa-guru-homework";
+    public static final String REPOSITORY = System.getProperty("repository", "anstasiatum/qa-guru-homework");
 
     @BeforeAll
     static void browserConfiguration() {
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        String selenoidHostName = System.getProperty("selenoidHostName", "selenoid.autotests.cloud");
+        String selenoidLogin = System.getProperty("selenoidLogin", "user1");
+        String selenoidPassword = System.getProperty("selenoidPassword", "1234");
+        String browser = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browserVersion", "128.0");
+        String screenResolution = System.getProperty("screenResolution", "1920x1080");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
+
+        Configuration.browserSize = screenResolution;
+        Configuration.remote = format("https://%s:%s@%s/wd/hub", selenoidLogin, selenoidPassword, selenoidHostName);
+        Configuration.browser = browser;
+        Configuration.browserVersion = browserVersion;
         Configuration.browserCapabilities = capabilities;
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach

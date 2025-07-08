@@ -60,4 +60,12 @@ task jenkins_test(type: Test) {
     useJUnitPlatform {
         includeTags("Jenkins")
     }
+
+}
+
+task annotations_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Annotations")
+    }
+
 }

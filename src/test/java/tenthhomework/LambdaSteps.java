@@ -20,6 +20,7 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 
 @Tag("Jenkins")
+@Tag("Annotations")
 public class LambdaSteps {
     public static final String REPOSITORY = "anstasiatum/qa-guru-homework";
 

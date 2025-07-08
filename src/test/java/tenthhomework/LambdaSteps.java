@@ -31,7 +31,7 @@ public class LambdaSteps {
         String selenoidLogin = System.getProperty("selenoidLogin", "user1");
         String selenoidPassword = System.getProperty("selenoidPassword", "1234");
         String browser = System.getProperty("browser", "chrome");
-        String browserVersion = System.getProperty("browserVersion", "128.0");
+        String browserVersion = System.getProperty("browserVersion", "138.0");
         String screenResolution = System.getProperty("screenResolution", "1920x1080");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

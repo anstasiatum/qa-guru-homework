@@ -6,6 +6,7 @@ import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -45,9 +46,13 @@ public class LambdaSteps {
         Configuration.browser = browser;
         Configuration.browserVersion = browserVersion;
         Configuration.browserCapabilities = capabilities;
+    }
 
+    @BeforeEach
+    void listenerConfiguration() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
+
 
     @AfterEach
     void addAttachments() {

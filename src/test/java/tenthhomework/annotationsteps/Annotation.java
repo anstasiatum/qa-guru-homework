@@ -6,6 +6,7 @@ import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -19,7 +20,6 @@ public class Annotation {
     @BeforeAll
     static void browserConfiguration() {
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -27,6 +27,11 @@ public class Annotation {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+    }
+    
+    @BeforeEach
+    void listenerConfiguration() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach

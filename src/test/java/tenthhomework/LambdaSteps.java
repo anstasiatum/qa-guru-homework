@@ -90,6 +90,5 @@ public class LambdaSteps {
         steps.searchForRepository(REPOSITORY);
         steps.clickOnRepositoryLink(REPOSITORY);
         steps.shouldBENamedIssue();
-
     }
 }

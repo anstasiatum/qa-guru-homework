@@ -45,7 +45,6 @@ public class Annotation {
     @Tag("Annotations")
     @Test
     public void testAnnotatedStep() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         Steps steps = new Steps();
 
         steps.openMainPage();

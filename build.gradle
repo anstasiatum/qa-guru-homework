@@ -31,6 +31,7 @@ dependencies {
             "com.codeborne:selenide:7.9.2",
             "org.junit.jupiter:junit-jupiter:5.13.0-M2",
             "org.junit.platform:junit-platform-launcher:1.13.0-M2",
+            "io.rest-assured:rest-assured:5.5.5",
             'org.slf4j:slf4j-simple:2.0.17',
             'com.github.javafaker:javafaker:1.0.2',
             'commons-io:commons-io:2.15.0',

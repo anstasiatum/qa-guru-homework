@@ -1,4 +1,4 @@
-package eighthHomeTask;
+package eighthhometask;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;

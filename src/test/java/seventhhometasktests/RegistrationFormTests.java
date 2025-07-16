@@ -1,4 +1,4 @@
-package seventhHometaskTests;
+package seventhhometasktests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -14,21 +14,21 @@ import sixthHometaskTests.TestBase;
 
 import java.util.Map;
 
-import static seventhHometaskTests.TestData.currentAddress;
-import static seventhHometaskTests.TestData.email;
-import static seventhHometaskTests.TestData.firstName;
-import static seventhHometaskTests.TestData.fullName;
-import static seventhHometaskTests.TestData.getRandomAvatar;
-import static seventhHometaskTests.TestData.getRandomBirthday;
-import static seventhHometaskTests.TestData.getRandomCity;
-import static seventhHometaskTests.TestData.getRandomGender;
-import static seventhHometaskTests.TestData.getRandomHobby;
-import static seventhHometaskTests.TestData.getRandomMonth;
-import static seventhHometaskTests.TestData.getRandomState;
-import static seventhHometaskTests.TestData.getRandomSubject;
-import static seventhHometaskTests.TestData.getRandomYear;
-import static seventhHometaskTests.TestData.lastName;
-import static seventhHometaskTests.TestData.phoneNumber;
+import static seventhhometasktests.TestData.currentAddress;
+import static seventhhometasktests.TestData.email;
+import static seventhhometasktests.TestData.firstName;
+import static seventhhometasktests.TestData.fullName;
+import static seventhhometasktests.TestData.getRandomAvatar;
+import static seventhhometasktests.TestData.getRandomBirthday;
+import static seventhhometasktests.TestData.getRandomCity;
+import static seventhhometasktests.TestData.getRandomGender;
+import static seventhhometasktests.TestData.getRandomHobby;
+import static seventhhometasktests.TestData.getRandomMonth;
+import static seventhhometasktests.TestData.getRandomState;
+import static seventhhometasktests.TestData.getRandomSubject;
+import static seventhhometasktests.TestData.getRandomYear;
+import static seventhhometasktests.TestData.lastName;
+import static seventhhometasktests.TestData.phoneNumber;
 
 @Tag("Jenkins")
 public class RegistrationFormTests extends TestBase {

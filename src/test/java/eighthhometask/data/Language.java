@@ -1,4 +1,4 @@
-package eighthHomeTask.data;
+package eighthhometask.data;
 
 public enum Language {
     Chinese("普通话", "從官方管道購買《漢密爾頓》門票"),

@@ -79,3 +79,8 @@ task reqres_test(type: Test) {
     }
 }
 
+task book_store_app_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("book_store_app")
+    }
+}

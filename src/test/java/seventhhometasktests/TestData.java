@@ -1,4 +1,4 @@
-package seventhHometaskTests;
+package seventhhometasktests;
 
 import com.github.javafaker.Faker;
 

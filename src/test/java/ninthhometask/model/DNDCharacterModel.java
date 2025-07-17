@@ -1,4 +1,4 @@
-package ninthHometask.model;
+package ninthhometask.model;
 
 import lombok.Getter;
 

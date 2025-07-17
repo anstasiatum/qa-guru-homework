@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.registrationPage.RegistrationPage;
-import sixthHometaskTests.TestBase;
+import sixthhometasktests.TestBase;
 
 import java.util.Map;
 

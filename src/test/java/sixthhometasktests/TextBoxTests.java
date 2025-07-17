@@ -1,4 +1,4 @@
-package sixthHometaskTests;
+package sixthhometasktests;
 
 import org.junit.jupiter.api.Test;
 import pages.textBoxPage.TextBoxPage;

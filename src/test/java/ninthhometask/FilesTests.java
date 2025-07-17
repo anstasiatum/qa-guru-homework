@@ -1,11 +1,11 @@
-package ninthHometask;
+package ninthhometask;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
-import ninthHometask.model.DNDCharacterModel;
+import ninthhometask.model.DNDCharacterModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

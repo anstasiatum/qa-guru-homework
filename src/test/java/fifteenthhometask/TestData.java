@@ -8,11 +8,18 @@ public class TestData {
     // User request URL without ID
     final static String requestUserWithoutID = "https://reqres.in/api/users/";
 
-    // Request Body for updating a user
+    // Request Bodies
     final static String updateUserRequestBody = """
             {
                 "name": "morpheus",
                 "job": "zion resident"
             }
             """;
+
+    final static String registerUserRequestBody = """
+                {
+                    "email": "eve.holt@reqres.in",
+                    "password": "pistol"
+                }
+                """;
 }

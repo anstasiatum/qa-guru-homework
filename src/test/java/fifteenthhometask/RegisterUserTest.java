@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static fifteenthhometask.TestData.headerO;
 import static fifteenthhometask.TestData.headerS;
+import static fifteenthhometask.TestData.registerUserRequestBody;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
@@ -16,16 +17,9 @@ public class RegisterUserTest {
     @DisplayName("Successful registration of a user")
     void successfulUserRegistration() {
 
-        final String requestBody = """
-                {
-                    "email": "eve.holt@reqres.in",
-                    "password": "pistol"
-                }
-                """;
-
         given()
                 .header(headerS, headerO)
-                .body(requestBody)
+                .body(registerUserRequestBody)
                 .contentType(JSON)
                 .log().uri()
                 .when()
@@ -42,15 +36,8 @@ public class RegisterUserTest {
     @DisplayName("Unsuccessful registration of a user: missing API key")
     void unsuccessfulUserRegistrationMissingAPIKey() {
 
-        final String requestBody = """
-                {
-                    "email": "eve.holt@reqres.in",
-                    "password": "pistol"
-                }
-                """;
-
         given()
-                .body(requestBody)
+                .body(registerUserRequestBody)
                 .contentType(JSON)
                 .log().uri()
                 .when()

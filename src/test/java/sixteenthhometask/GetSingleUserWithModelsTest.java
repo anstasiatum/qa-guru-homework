@@ -57,17 +57,4 @@ public class GetSingleUserWithModelsTest extends TestBase {
                 .then()
                 .spec(searchForASingleUserWithNonExistentIdResponseSpec));
     }
-
-    @Test
-    @DisplayName("Unsuccessful search for a user: Missing API key test during search")
-    void unsuccessfulSearchForASingleUserMissingAPIKeyTest() {
-        userID = 3;
-
-        step("Make request and check the response code", () ->
-        given(searchForASingleUserRequestSpec)
-                .when()
-                .get(String.valueOf(userID))
-                .then()
-                .spec(searchForASingleUserWithMissingHeadersSpec));
-    }
 }

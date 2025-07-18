@@ -33,10 +33,8 @@ public class RegisterUserWithModelsTest extends TestBase {
                 given(userRegistrationRequestSpec)
                         .header(headerS, headerO)
                         .body(requestBody)
-
                         .when()
                         .post()
-
                         .then()
                         .spec(successfulUserRegistrationResponseSpec)
                         .extract().as(SuccessfulUserRegistrationResponseModel.class));
@@ -57,10 +55,8 @@ public class RegisterUserWithModelsTest extends TestBase {
         step("Make request and check status code", () ->
                 given(userRegistrationRequestSpec)
                         .body(requestBody)
-
                         .when()
                         .post()
-
                         .then()
                         .spec(userRegistrationMissingHeadersResponseSpec));
 
@@ -75,10 +71,8 @@ public class RegisterUserWithModelsTest extends TestBase {
                 given(userRegistrationRequestSpec)
                         .header(headerS, headerO)
                         .body(requestBody)
-
                         .when()
                         .post()
-
                         .then()
                         .spec(userRegistrationMissingCredentialsResponseSpec)
                         .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
@@ -95,10 +89,8 @@ public class RegisterUserWithModelsTest extends TestBase {
                 given(userRegistrationRequestSpec)
                 .header(headerS, headerO)
                 .body(requestBody)
-
                 .when()
                 .post()
-
                 .then()
                 .spec(userRegistrationMissingCredentialsResponseSpec)
                 .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
@@ -114,10 +106,8 @@ public class RegisterUserWithModelsTest extends TestBase {
                 given(userRegistrationRequestSpec)
                         .header(headerS, headerO)
                         .body(requestBody)
-
                         .when()
                         .post()
-
                         .then()
                         .spec(userRegistrationMissingCredentialsResponseSpec)
                         .extract().as(UnsuccessfulUserRegistrationResponseModel.class));

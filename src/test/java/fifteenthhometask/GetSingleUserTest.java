@@ -3,29 +3,28 @@ package fifteenthhometask;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static fifteenthhometask.APIKey.headerO;
-import static fifteenthhometask.APIKey.headerS;
+import static fifteenthhometask.TestData.headerO;
+import static fifteenthhometask.TestData.headerS;
+import static fifteenthhometask.TestData.requestUserWithoutID;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 
 public class GetSingleUserTest {
-    final String requestWithoutID = "https://reqres.in/api/users/";
     int userID;
 
     @Test
     @DisplayName("Successful search for a single existent user")
     void successfulSearchForASingleUserTest() {
+
         userID = 2;
-        String request = requestWithoutID + userID;
+        String request = requestUserWithoutID + userID;
 
         given()
                 .header(headerS, headerO)
                 .log().uri()
-
                 .when()
                 .get(request)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -43,15 +42,13 @@ public class GetSingleUserTest {
     @DisplayName("Search for a user with non-existent ID")
     void unsuccessfulSearchForASingleUserTest() {
         userID = 23;
-        String request = requestWithoutID + userID;
+        String request = requestUserWithoutID + userID;
 
         given()
                 .header(headerS, headerO)
                 .log().uri()
-
                 .when()
                 .get(request)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -62,14 +59,12 @@ public class GetSingleUserTest {
     @DisplayName("Missing API key test during search")
     void unsuccessfulSearchForASingleUserMissingAPIKeyTest() {
         userID = 3;
-        String request = requestWithoutID + userID;
+        String request = requestUserWithoutID + userID;
 
         given()
                 .log().uri()
-
                 .when()
                 .get(request)
-
                 .then()
                 .log().status()
                 .log().body()

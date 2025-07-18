@@ -3,8 +3,8 @@ package fifteenthhometask;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static fifteenthhometask.APIKey.headerO;
-import static fifteenthhometask.APIKey.headerS;
+import static fifteenthhometask.TestData.headerO;
+import static fifteenthhometask.TestData.headerS;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
@@ -28,10 +28,8 @@ public class RegisterUserTest {
                 .body(requestBody)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post(request)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -55,10 +53,8 @@ public class RegisterUserTest {
                 .body(requestBody)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post(request)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -80,10 +76,8 @@ public class RegisterUserTest {
                 .body(requestBody)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post(request)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -106,10 +100,8 @@ public class RegisterUserTest {
                 .body(requestBody)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post(request)
-
                 .then()
                 .log().status()
                 .log().body()
@@ -128,10 +120,8 @@ public class RegisterUserTest {
                 .body(requestBody)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post(request)
-
                 .then()
                 .log().status()
                 .log().body()

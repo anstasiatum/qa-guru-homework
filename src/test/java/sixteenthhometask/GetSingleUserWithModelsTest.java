@@ -25,10 +25,8 @@ public class GetSingleUserWithModelsTest extends TestBase {
         GetUserResponseModel searchResult = step("Make request", () ->
                 given(searchForASingleUserRequestSpec)
                         .header(headerS, headerO)
-
                         .when()
                         .get(String.valueOf(userID))
-
                         .then()
                         .spec(successfulSearchForASingleUserResponseSpec)
                         .extract().as(GetUserResponseModel.class));
@@ -54,10 +52,8 @@ public class GetSingleUserWithModelsTest extends TestBase {
         step("Make request and check the response code", () ->
                 given(searchForASingleUserRequestSpec)
                 .header(headerS, headerO)
-
                 .when()
                 .get(String.valueOf(userID))
-
                 .then()
                 .spec(searchForASingleUserWithNonExistentIdResponseSpec));
     }
@@ -69,10 +65,8 @@ public class GetSingleUserWithModelsTest extends TestBase {
 
         step("Make request and check the response code", () ->
         given(searchForASingleUserRequestSpec)
-
                 .when()
                 .get(String.valueOf(userID))
-
                 .then()
                 .spec(searchForASingleUserWithMissingHeadersSpec));
     }

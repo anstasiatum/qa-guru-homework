@@ -10,8 +10,6 @@ import sixteenthhometask.models.registeruser.UserRegistrationRequestModel;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static sixteenthhometask.specs.RegisterUserSpec.successfulUserRegistrationResponseSpec;
 import static sixteenthhometask.specs.RegisterUserSpec.userRegistrationMissingCredentialsResponseSpec;
@@ -87,13 +85,13 @@ public class RegisterUserWithModelsTest extends TestBase {
 
         UnsuccessfulUserRegistrationResponseModel responseBody = step("Make request", () ->
                 given(userRegistrationRequestSpec)
-                .header(headerS, headerO)
-                .body(requestBody)
-                .when()
-                .post()
-                .then()
-                .spec(userRegistrationMissingCredentialsResponseSpec)
-                .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
+                        .header(headerS, headerO)
+                        .body(requestBody)
+                        .when()
+                        .post()
+                        .then()
+                        .spec(userRegistrationMissingCredentialsResponseSpec)
+                        .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
 
         step("Check response", () -> assertEquals("Missing password", responseBody.getError()));
     }

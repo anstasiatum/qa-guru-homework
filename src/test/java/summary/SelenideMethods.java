@@ -1,16 +1,65 @@
 package summary;
 
-import com.codeborne.selenide.*;
-import org.openqa.selenium.*;
+import com.codeborne.selenide.AuthenticationType;
+import com.codeborne.selenide.BasicAuthCredentials;
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.DownloadOptions;
+import com.codeborne.selenide.FileDownloadMode;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Keys;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.Duration;
 
-import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.CollectionCondition.exactTexts;
+import static com.codeborne.selenide.CollectionCondition.exactTextsCaseSensitiveInAnyOrder;
+import static com.codeborne.selenide.CollectionCondition.itemWithText;
+import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
+import static com.codeborne.selenide.CollectionCondition.sizeLessThan;
+import static com.codeborne.selenide.CollectionCondition.sizeLessThanOrEqual;
+import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.attributeMatching;
+import static com.codeborne.selenide.Condition.checked;
+import static com.codeborne.selenide.Condition.cssClass;
+import static com.codeborne.selenide.Condition.cssValue;
+import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Condition.empty;
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.exactTextCaseSensitive;
+import static com.codeborne.selenide.Condition.exactValue;
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.hidden;
+import static com.codeborne.selenide.Condition.matchText;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.textCaseSensitive;
+import static com.codeborne.selenide.Condition.value;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byAttribute;
+import static com.codeborne.selenide.Selectors.byClassName;
+import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.withTagAndText;
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.$$x;
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.actions;
+import static com.codeborne.selenide.Selenide.element;
+import static com.codeborne.selenide.Selenide.elements;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class SelenideMethods {

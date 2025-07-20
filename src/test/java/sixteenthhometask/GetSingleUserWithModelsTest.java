@@ -9,7 +9,6 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static sixteenthhometask.specs.GetUserSpec.searchForASingleUserRequestSpec;
-import static sixteenthhometask.specs.GetUserSpec.searchForASingleUserWithMissingHeadersSpec;
 import static sixteenthhometask.specs.GetUserSpec.searchForASingleUserWithNonExistentIdResponseSpec;
 import static sixteenthhometask.specs.GetUserSpec.successfulSearchForASingleUserResponseSpec;
 
@@ -51,10 +50,10 @@ public class GetSingleUserWithModelsTest extends TestBase {
 
         step("Make request and check the response code", () ->
                 given(searchForASingleUserRequestSpec)
-                .header(headerS, headerO)
-                .when()
-                .get(String.valueOf(userID))
-                .then()
-                .spec(searchForASingleUserWithNonExistentIdResponseSpec));
+                        .header(headerS, headerO)
+                        .when()
+                        .get(String.valueOf(userID))
+                        .then()
+                        .spec(searchForASingleUserWithNonExistentIdResponseSpec));
     }
 }

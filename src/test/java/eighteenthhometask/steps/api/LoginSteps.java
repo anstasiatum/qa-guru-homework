@@ -5,7 +5,7 @@ import eighteenthhometask.models.LoginResponseModel;
 import io.qameta.allure.Step;
 
 import static eighteenthhometask.specs.LoginSpec.loginRequestSpec;
-import static eighteenthhometask.specs.LoginSpec.loginResponseSpec;
+import static eighteenthhometask.specs.ResponseSpec.getResponseSpec;
 import static eighteenthhometask.tests.DemoQATestData.authToken;
 import static eighteenthhometask.tests.DemoQATestData.expires;
 import static eighteenthhometask.tests.DemoQATestData.userID;
@@ -24,7 +24,7 @@ public class LoginSteps {
                 .when()
                 .post()
                 .then()
-                .spec(loginResponseSpec)
+                .spec(getResponseSpec(200))
                 .extract().as(LoginResponseModel.class);
 
         authToken = response.getToken();

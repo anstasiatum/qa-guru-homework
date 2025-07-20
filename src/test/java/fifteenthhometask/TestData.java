@@ -17,9 +17,9 @@ public class TestData {
             """;
 
     final static String registerUserRequestBody = """
-                {
-                    "email": "eve.holt@reqres.in",
-                    "password": "pistol"
-                }
-                """;
+            {
+                "email": "eve.holt@reqres.in",
+                "password": "pistol"
+            }
+            """;
 }

@@ -5,7 +5,7 @@ import pages.textBoxPage.TextBoxPage;
 
 public class TextBoxTests extends TestBase {
 
-TextBoxPage textBoxPage = new TextBoxPage();
+    TextBoxPage textBoxPage = new TextBoxPage();
 
     // Setting up the test data
     final String fullName = "John Doe";

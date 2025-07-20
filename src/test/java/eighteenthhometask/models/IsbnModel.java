@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ISBNModel {
+public class IsbnModel {
     String isbn;
 }

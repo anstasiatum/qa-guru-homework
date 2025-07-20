@@ -9,5 +9,5 @@ import java.util.List;
 @Setter
 public class AddBookRequestModel {
     String userId;
-    List<ISBNModel> collectionOfIsbns;
+    List<IsbnModel> collectionOfIsbns;
 }

@@ -6,13 +6,12 @@ import org.junit.jupiter.api.DisplayName;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static eighteenthhometask.pages.ProfilePage.bookTable;
-import static eighteenthhometask.pages.ProfilePage.deleteASingleBookFromCartButtonSelector;
-import static eighteenthhometask.pages.ProfilePage.noRowsFoundSelector;
+import static eighteenthhometask.pages.ProfilePage.deleteASingleBookFromCartButton;
+import static eighteenthhometask.pages.ProfilePage.noRowsFound;
 import static eighteenthhometask.pages.ProfilePage.profileURL;
-import static eighteenthhometask.pages.components.DeletionConfirmationModal.okButtonSelector;
+import static eighteenthhometask.pages.components.DeletionConfirmationModal.okButton;
 
 public class DeleteBooksFromCartSteps {
     @Step
@@ -25,15 +24,15 @@ public class DeleteBooksFromCartSteps {
     @DisplayName("UI. Delete a book from the cart")
     @WithLoginUI
     public void deleteBookFromCartViaUI() {
-        $(deleteASingleBookFromCartButtonSelector).click();
-        $(okButtonSelector).click();
+        deleteASingleBookFromCartButton.click();
+        okButton.click();
     }
 
     @Step
     @DisplayName("UI. Check the \"No rows found\" text")
     @WithLoginUI
     public void checkNoRowsFoundTextViaUi() {
-        $(noRowsFoundSelector)
+        noRowsFound
                 .shouldBe(visible)
                 .shouldHave(text("No rows found"));
 
@@ -43,7 +42,7 @@ public class DeleteBooksFromCartSteps {
     @DisplayName("UI. Check the table does npt have the specified book")
     @WithLoginUI
     public void checkTheBookIsNotInTheTableViaUi(String bookName) {
-        $(bookTable).shouldNotHave(text(bookName));
+        bookTable.shouldNotHave(text(bookName));
 
     }
 }

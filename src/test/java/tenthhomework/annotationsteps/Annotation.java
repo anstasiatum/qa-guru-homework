@@ -28,7 +28,7 @@ public class Annotation {
         ));
         Configuration.browserCapabilities = capabilities;
     }
-    
+
     @BeforeEach
     void listenerConfiguration() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());

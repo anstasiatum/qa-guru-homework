@@ -23,7 +23,6 @@ public interface WebDriverConfig extends Config {
     String getScreenResolution();
 
     @Key("environment")
-    @DefaultValue("QA_GURU")
     String getEnvironment();
 
     @Key("selenoid.hostName")

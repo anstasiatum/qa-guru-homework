@@ -9,6 +9,6 @@ public class TestBase {
 
     @BeforeAll
     static void configuration() {
-        RestAssured.baseURI = "https://reqres.in";
+        RestAssured.baseURI = "https://reqres.in/api";
     }
 }

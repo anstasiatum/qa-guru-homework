@@ -11,9 +11,7 @@ import sixteenthhometask.models.registeruser.UserRegistrationRequestModel;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static sixteenthhometask.specs.RegisterUserSpec.successfulUserRegistrationResponseSpec;
-import static sixteenthhometask.specs.RegisterUserSpec.userRegistrationMissingCredentialsResponseSpec;
-import static sixteenthhometask.specs.RegisterUserSpec.userRegistrationMissingHeadersResponseSpec;
+import static sixteenthhometask.specs.GetResponse.getResponse;
 import static sixteenthhometask.specs.RegisterUserSpec.userRegistrationRequestSpec;
 
 @Tag("Reqres")
@@ -34,7 +32,7 @@ public class RegisterUserWithModelsTest extends TestBase {
                         .when()
                         .post()
                         .then()
-                        .spec(successfulUserRegistrationResponseSpec)
+                        .spec(getResponse(200))
                         .extract().as(SuccessfulUserRegistrationResponseModel.class));
 
         step("Check response", () -> {
@@ -56,7 +54,7 @@ public class RegisterUserWithModelsTest extends TestBase {
                         .when()
                         .post()
                         .then()
-                        .spec(userRegistrationMissingHeadersResponseSpec));
+                        .spec(getResponse(401)));
 
     }
 
@@ -72,7 +70,7 @@ public class RegisterUserWithModelsTest extends TestBase {
                         .when()
                         .post()
                         .then()
-                        .spec(userRegistrationMissingCredentialsResponseSpec)
+                        .spec(getResponse(400))
                         .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
 
         step("Check response", () -> assertEquals("Missing email or username", responseBody.getError()));
@@ -90,7 +88,7 @@ public class RegisterUserWithModelsTest extends TestBase {
                         .when()
                         .post()
                         .then()
-                        .spec(userRegistrationMissingCredentialsResponseSpec)
+                        .spec(getResponse(400))
                         .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
 
         step("Check response", () -> assertEquals("Missing password", responseBody.getError()));
@@ -107,7 +105,7 @@ public class RegisterUserWithModelsTest extends TestBase {
                         .when()
                         .post()
                         .then()
-                        .spec(userRegistrationMissingCredentialsResponseSpec)
+                        .spec(getResponse(400))
                         .extract().as(UnsuccessfulUserRegistrationResponseModel.class));
 
         step("Check response", () -> assertEquals("Missing email or username", responseBody.getError()));

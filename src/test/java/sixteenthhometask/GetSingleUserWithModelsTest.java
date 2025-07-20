@@ -8,9 +8,8 @@ import sixteenthhometask.models.getuserbyid.GetUserResponseModel;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static sixteenthhometask.specs.GetResponse.getResponse;
 import static sixteenthhometask.specs.GetUserSpec.searchForASingleUserRequestSpec;
-import static sixteenthhometask.specs.GetUserSpec.searchForASingleUserWithNonExistentIdResponseSpec;
-import static sixteenthhometask.specs.GetUserSpec.successfulSearchForASingleUserResponseSpec;
 
 @Tag("Reqres")
 public class GetSingleUserWithModelsTest extends TestBase {
@@ -27,7 +26,7 @@ public class GetSingleUserWithModelsTest extends TestBase {
                         .when()
                         .get(String.valueOf(userID))
                         .then()
-                        .spec(successfulSearchForASingleUserResponseSpec)
+                        .spec(getResponse(200))
                         .extract().as(GetUserResponseModel.class));
 
         step("Check Response", () -> {
@@ -54,6 +53,6 @@ public class GetSingleUserWithModelsTest extends TestBase {
                         .when()
                         .get(String.valueOf(userID))
                         .then()
-                        .spec(searchForASingleUserWithNonExistentIdResponseSpec));
+                        .spec(getResponse(404)));
     }
 }
